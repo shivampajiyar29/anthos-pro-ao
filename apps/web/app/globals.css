@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0B0E14;
+  --panel: #11171E;
+  --sidebar: #10151C;
+  --foreground: #FFFFFF;
+  --accent: #17C7A1;
+  --secondary: #7B7E84;
+  --border: #1B222C;
+  --purple: #8B5CF6;
+  --red: #FF4D4D;
+  --glass: rgba(255, 255, 255, 0.01);
+  --glass-border: rgba(255, 255, 255, 0.04);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-[var(--glass)] backdrop-blur-md border border-[var(--glass-border)] rounded-xl;
+  }
+
+  .neon-border-cyan {
+    @apply border border-[var(--cyan)] shadow-[0_0_10px_rgba(0, 255, 255, 0.3)];
+  }
+
+  .neon-border-purple {
+    @apply border border-[var(--purple)] shadow-[0_0_10px_rgba(170, 0, 255, 0.3)];
+  }
+
+  .glow-pulse-cyan {
+    animation: pulse-cyan 2s infinite;
+  }
+
+  .glow-pulse-purple {
+    animation: pulse-purple 2s infinite;
+  }
+
+  .thinking-glow {
+    animation: thinking-glow 1.5s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes pulse-cyan {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
+  }
+}
+
+@keyframes pulse-purple {
+  0% {
+    box-shadow: 0 0 5px rgba(170, 0, 255, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(170, 0, 255, 0.5);
+  }
+
+  100% {
+    box-shadow: 0 0 5px rgba(170, 0, 255, 0.2);
+  }
+}
+
+@keyframes thinking-glow {
+  from {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 2px var(--cyan));
+  }
+
+  to {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px var(--cyan));
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--glass-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}

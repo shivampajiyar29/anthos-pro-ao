@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+motor
+dnspython
+redis
+pydantic
+pydantic-settings
+python-dotenv
+httpx
+# octagon-mcp removed - manually implemented with httpx
+alpaca-trade-api
+ccxt
+upstox-python-sdk
+langchain
+openai
+websockets
+python-multipart
